@@ -1,7 +1,10 @@
-import ContactsForm from "./Components/Phonebook.js/ContactsForm";
+import Phonebook from "./Components/Phonebook.js/Phonebook";
+import Section from "./Components/Section.js/Section";
 
-function App() {
-  return <ContactsForm />;
+export default function App() {
+  return (
+    <Section>
+      <Phonebook />
+    </Section>
+  );
 }
-
-export default App;

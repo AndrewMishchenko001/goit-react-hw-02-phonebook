@@ -1,4 +1,6 @@
-function ContactList({ contacts, onDeleteContacts }) {
+import PropTypes from "prop-types";
+
+export default function ContactList({ contacts, onDeleteContacts }) {
   return (
     <>
       <ul>
@@ -14,4 +16,13 @@ function ContactList({ contacts, onDeleteContacts }) {
     </>
   );
 }
-export default ContactList;
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onDeleteContacts: PropTypes.func.isRequired,
+};
