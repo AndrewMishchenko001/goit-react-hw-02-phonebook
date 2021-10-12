@@ -1,13 +1,14 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Section from "../Section.js/Section";
 import ContactsForm from "./ContactsForm";
 import Filter from "../Filter/Filter";
 import ContactList from "../ContactList/ContactList";
+import contactsData from "../ContactList/contactsData.json";
 
 export default class Phonebook extends Component {
   state = {
-    contacts: [],
+    contacts: contactsData,
     filter: "",
   };
 
@@ -46,7 +47,7 @@ export default class Phonebook extends Component {
   }
 
   render() {
-    const { filter, contacts } = this.state;
+    const { filter } = this.state;
     return (
       <div>
         <Section title="Phonebook">
@@ -55,7 +56,7 @@ export default class Phonebook extends Component {
         <Section title="Contacts">
           <Filter value={filter} onChange={this.getFilter} />
           <ContactList
-            contacts={contacts}
+            contacts={this.getFiltredContacts()}
             onDeleteContacts={this.deleteContacts}
           />
         </Section>
