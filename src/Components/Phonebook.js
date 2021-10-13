@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Section from "../Section.js/Section";
-import ContactsForm from "./ContactsForm";
-import Filter from "../Filter/Filter";
-import ContactList from "../ContactList/ContactList";
-import contactsData from "../ContactList/contactsData.json";
+import Section from "./Section.js/Section";
+import ContactsForm from "./ContactForm/ContactsForm";
+import Filter from "./Filter/Filter";
+import ContactList from "./ContactList/ContactList";
+import contactsData from "./ContactList/contactsData.json";
+import s from "./ContactForm/ContactForm.module.css";
 
 export default class Phonebook extends Component {
   state = {
@@ -49,7 +50,7 @@ export default class Phonebook extends Component {
   render() {
     const { filter } = this.state;
     return (
-      <div>
+      <div className={s.container}>
         <Section title="Phonebook">
           <ContactsForm onSubmit={this.formSubmitHandler} />
         </Section>
